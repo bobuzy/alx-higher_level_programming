@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import random
 number = random.randint(-10000, 10000)
+rem = 0
 if number < 0:
     rem = number % -10
 elif number > 0:
