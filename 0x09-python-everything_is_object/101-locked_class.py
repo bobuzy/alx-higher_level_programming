@@ -3,5 +3,6 @@
 
 
 class LockedClass():
-    """Restrict first_name attribute in this class"""
+    """Restrict this class to have only 
+    first_name attribute"""
     __slots__ = ('first_name')
