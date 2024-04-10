@@ -1,0 +1,68 @@
+The ``5-text_indentation`` module
+============================
+
+Using ``text_indentation``
+---------------------
+
+Import module:
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+Test no delim:
+    >>> text_indentation("Hi there!")
+    Hi there!
+
+Test string with spaces:
+    >>> text_indentation("Hello World   ")
+    Hello World   
+
+Test string with spaces 2:
+    >>> text_indentation("   OpenAI")
+       OpenAI
+    
+Test string with spaces 3:
+    >>> text_indentation("   Machine Learning   ")
+       Machine Learning   
+    
+Test string with empty string:
+    >>> text_indentation("")
+       
+Test simple:
+    >>> text_indentation("Hello, World!")
+    Hello, World!
+
+Test newline:
+    >>> text_indentation("\n")
+    <BLANKLINE>
+
+Test newline 2:
+    >>> text_indentation("\n\n")
+    <BLANKLINE>
+    <BLANKLINE>
+
+Test newline 3:
+    >>> text_indentation("Hello\n\n")
+    Hello
+    <BLANKLINE>
+
+Test all delimiters:
+    >>> text_indentation("Hello, World? How are you")
+    Hello, World?
+    <BLANKLINE>
+    How are you
+
+Test nonindent inside indent
+    >>> text_indentation("!OpenAI.")
+    !OpenAI.
+    <BLANKLINE>
+
+Test none:
+    >>> text_indentation(None)
+    Traceback (most recent call last):
+    ...
+    TypeError: text must be a string
+
+Test number:
+    >>> text_indentation(42)
+    Traceback (most recent call last):
+    ...
+    TypeError: text must be a string
