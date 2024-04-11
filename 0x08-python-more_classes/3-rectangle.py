@@ -68,4 +68,5 @@ class Rectangle:
                 for j in range(self.__width):
                     rec_string += '#'
                 rec_string += '\n'
+            return rec_string[:-1]
         return rec_string
