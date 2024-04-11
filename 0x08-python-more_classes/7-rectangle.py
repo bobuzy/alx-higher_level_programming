@@ -6,7 +6,7 @@ class Rectangle:
     """Rectangle class definition"""
 
     number_of_instances = 0
-    print_symbol = '#'
+    print_symbol = "#"
 
     def __init__(self, width=0, height=0):
         """Initialize attributes
@@ -71,7 +71,7 @@ class Rectangle:
         if self.__height != 0 and self.__width != 0:
             for i in range(self.__height):
                 for j in range(self.__width):
-                    rec_string += '#'
+                    rec_string += str(self.print_symbol)
                 rec_string += '\n'
             return rec_string[:-1]
         return rec_string
