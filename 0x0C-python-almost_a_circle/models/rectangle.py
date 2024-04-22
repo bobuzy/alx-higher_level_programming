@@ -87,6 +87,7 @@ class Rectangle(Base):
                 self.__x, self.__y, self.__width, self.__height))
 
     def update(self, *args, **kwargs):
+        """Update the attributes using args and kwargs"""
         if args:
             for ind in range(len(args)):
                 if ind == 0:
