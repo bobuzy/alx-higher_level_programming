@@ -1,0 +1,83 @@
+#!/usr/bin/python3
+"""Rectangle class definition module"""
+from models.base import Base
+
+
+class Rectangle(Base):
+    """Rectangle class definition"""
+
+    def __init__(self, width, height, x=0, y=0, id=None):
+        self.width = width
+        self.height = height
+        self.x = x
+        self.y = y
+        super().__init__(id)
+
+    @property
+    def width(self):
+        """Return the Rectangle instance width"""
+        return self.__width
+
+    @width.setter
+    def width(self, value):
+        """Set a new width for instance object"""
+        self.validate("width", value)
+        self.__width = value
+
+    @property
+    def height(self):
+        """Return the Rectangle instance height"""
+        return self.__height
+
+    @height.setter
+    def height(self, value):
+        """Set a new height for Rectangle instance"""
+        self.validate("height", value)
+        self.__height = value
+
+    @property
+    def x(self):
+        """Return the Rectabgle instance x attribute"""
+        return self.__x
+
+    @x.setter
+    def x(self, value):
+        """Set new x attribute for Rectangle instance"""
+        self.validate("x", value)
+        self.__x = value
+
+    @property
+    def y(self):
+        """Return the Rectangle instance y attribute"""
+        return self.__y
+
+    @y.setter
+    def y(self, value):
+        """Set new y attribute for Rectabgle instance"""
+        self.validate("y", value)
+        self.__y = value
+
+    def validate(self, name, value):
+        """Raise error if value is unacceptable"""
+        if not isinstance(value, int):
+            raise TypeError("{} must be an integer".format(name))
+        if name in ("width", "height") and value <= 0:
+            raise ValueError("{} must be > 0".format(name))
+        if name in ("x", "y") and value < 0:
+            raise ValueError("{} must be >= 0".format(name))
+
+    def area(self):
+        """Return the area of the rectangle using the width and height"""
+        return self.__width * self.__height
+
+    def display(self):
+        """Print too standard output the Rectangle using '#'"""
+        for row in range(self.__height):
+            for col in range(self.__width):
+                print("#", end="")
+            print()
+
+    def __str__(self):
+        """Print the basic infprmation fo the rectangle class"""
+        return ("[Rectangle] ({}) {}/{} - {}/{}".
+                format(self.id, self.__x, self.__y, self.__width, self.__height))
