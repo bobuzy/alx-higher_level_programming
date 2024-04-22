@@ -50,5 +50,5 @@ class Square(Rectangle):
         """Return a dictionary representation of
         the Rectangle instance """
         square_dict = {"x": self.x, "y": self.y, "id": self.id,
-                     "size": self.width}
-        return(square_dict)
+                       "size": self.width}
+        return (square_dict)
