@@ -114,6 +114,5 @@ class Rectangle(Base):
         """Return a dictionary representation of
         the Rectangle instance """
         rec_dict = {"x": self.x, "y": self.y, "id": self.id,
-                     "height": self.height, "width": self.width}
-        return(rec_dict)
-
+                    "height": self.height, "width": self.width}
+        return (rec_dict)
