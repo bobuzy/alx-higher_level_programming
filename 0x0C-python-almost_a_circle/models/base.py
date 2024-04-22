@@ -10,6 +10,7 @@ class Base:
     __nb_objects = 0
 
     def __init__(self, id=None):
+        """Initalize the id attribute in all instances of Base"""
         if id is not None:
             self.id = id
         else:
