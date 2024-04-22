@@ -72,12 +72,39 @@ class Rectangle(Base):
 
     def display(self):
         """Print too standard output the Rectangle using '#'"""
+        for y_axis in range(self.__y):
+            print()
         for row in range(self.__height):
+            for x_axis in range(self.__x):
+                print(" ", end="")
             for col in range(self.__width):
                 print("#", end="")
             print()
 
     def __str__(self):
         """Print the basic infprmation fo the rectangle class"""
-        return ("[Rectangle] ({}) {}/{} - {}/{}".
-                format(self.id, self.__x, self.__y, self.__width, self.__height))
+        return ("[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
+                self.__x, self.__y, self.__width, self.__height))
+
+    def update(self, *args, **kwargs):
+        if args:
+            for ind in range(len(args)):
+                if ind == 0:
+                    self.id = args[ind]
+                elif ind == 1:
+                    self.__width = args[ind]
+                elif ind == 2:
+                    self.__height = args[ind]
+                elif ind == 3:
+                    self.__x = args[ind]
+                elif ind == 4:
+                    self.__y = args[ind]
+                else:
+                    raise TypeError("update() takes at most 5 arguments " +
+                                    "but more than 5 was given")
+        elif kwargs:
+            self.id = kwargs.get('id', self.id)
+            self.__width = kwargs.get('width', self.__width)
+            self.__height = kwargs.get('height', self.__height)
+            self.__x = kwargs.get('x', self.__x)
+            self.__y = kwargs.get('y', self.__y)
