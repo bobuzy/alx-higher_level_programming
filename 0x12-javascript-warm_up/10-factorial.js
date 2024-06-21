@@ -3,8 +3,8 @@
 if (isNaN(process.argv[2])) {
   console.log(1);
 } else {
-  let val = parseInt(process.argv[2]);
-  
+  const val = parseInt(process.argv[2]);
+
   function factorial (num) {
     if (num === 1) {
       return (1);
@@ -12,6 +12,6 @@ if (isNaN(process.argv[2])) {
     num = num * factorial(num - 1);
     return (num);
   }
-  
+
   console.log(factorial(val));
 }
