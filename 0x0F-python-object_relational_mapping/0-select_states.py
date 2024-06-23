@@ -10,22 +10,21 @@ if __name__ == '__main__':
     database = sys.argv[3]
 
     try:
-        db = MySQLdb.connect(
-            host="localhost",
-            port=3306,
-            user=username,
-            passwd=password,
-            db=database)
+        db = MySQLdb.connect(host="localhost",
+                             port=3306,
+                             user=username,
+                             passwd=password,
+                             db=database)
     except MySQLdb.ERROR as error:
         print("Error connecting to database: {}".format(error))
         sys.exit(1)
 
-        curr = db.cursor()
+    curr = db.cursor()
 
-        curr.execute("SELECT * FROM states ORDER BY id ASC")
-        rows = curr.fetchall()
+    curr.execute("SELECT * FROM states ORDER BY id ASC")
+    rows = curr.fetchall()
 
-        for row in rows:
-            print(row)
-        curr.close()
-        db.close()
+    for row in rows:
+        print(row)
+    curr.close()
+    db.close()
