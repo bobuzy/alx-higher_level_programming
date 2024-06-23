@@ -22,8 +22,9 @@ if __name__ == '__main__':
 
     curr = db.cursor()
 
-    curr.execute("SELECT * FROM states WHERE name \
-                 LIKE BINARY '{}' ORDER BY id ASC".format(keyword))
+    query = "SELECT * FROM states WHERE name = %(key)s \
+                 ORDER BY id ASC"
+    curr.execute(query, {'key': keyword})
     rows = curr.fetchall()
 
     for row in rows:
